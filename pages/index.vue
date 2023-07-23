@@ -1,9 +1,11 @@
 <template>
-    <div>首页</div>
+    <div>{{ t('login.title') }}</div>
 </template>
 
 <!--  -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n();
+</script>
 
 <style scoped lang="scss">
 // a
