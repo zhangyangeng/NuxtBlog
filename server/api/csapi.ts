@@ -3,6 +3,6 @@ export default defineEventHandler((event) => {
     return {
         code: 0,
         message: 'success',
-        data: `这是测试接口，Url参数id的值为${queryInfo.id}`
-    }
+        data: `这是测试接口，Url参数id的值为${queryInfo.id}`,
+    };
 });

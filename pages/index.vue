@@ -3,10 +3,8 @@
 </template>
 
 <!--  -->
-<script setup lang='ts'>
-// a
-</script>
+<script setup lang="ts"></script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 // a
 </style>
