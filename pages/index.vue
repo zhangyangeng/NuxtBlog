@@ -1,5 +1,8 @@
 <template>
-    <div>{{ t('login.title') }}</div>
+    <div>
+        {{ t('login.title') }}
+        <ElButton :icon="ElIconEditPen" type="success">button</ElButton>
+    </div>
 </template>
 
 <!--  -->

@@ -8,5 +8,11 @@ export default defineNuxtConfig({
                 vueI18n: './plugins/i18n.config.ts',
             },
         ],
+        [
+            '@element-plus/nuxt',
+            {
+                importStyle: 'scss',
+            },
+        ],
     ],
 });
