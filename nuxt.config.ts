@@ -14,6 +14,15 @@ export default defineNuxtConfig({
                 importStyle: 'scss',
             },
         ],
+        [
+            '@pinia/nuxt',
+            {
+                autoImports: [
+                    // 自动引入 `defineStore()`
+                    'defineStore',
+                ],
+            },
+        ],
     ],
     vite: {
         css: {
