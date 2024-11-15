@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: true },
+    extends: ['@nuxt/ui-pro'],
     modules: [
         [
             '@nuxtjs/i18n',
@@ -23,6 +24,7 @@ export default defineNuxtConfig({
                 ],
             },
         ],
+        '@nuxt/ui',
     ],
     vite: {
         css: {
@@ -33,4 +35,5 @@ export default defineNuxtConfig({
             },
         },
     },
+    compatibilityDate: '2024-11-15',
 });
