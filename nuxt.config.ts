@@ -24,6 +24,7 @@ export default defineNuxtConfig({
             },
         ],
         '@nuxt/ui',
+        '@vueuse/nuxt',
     ],
     vite: {
         css: {
