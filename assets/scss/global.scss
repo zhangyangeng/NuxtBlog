@@ -1,8 +1,19 @@
 /*
  * 全局样式
  */
+body {
+    background-color: var(--background-color);
+}
 
 // 文字不允许选择
 .not-allow-selected {
     user-select: none;
+}
+
+// Nuxt图标样式
+.icon {
+    span {
+        cursor: pointer;
+        margin: 0 5px;
+    }
 }

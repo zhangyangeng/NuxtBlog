@@ -26,11 +26,13 @@ export default defineNuxtConfig({
         '@nuxt/ui',
         '@vueuse/nuxt',
     ],
+    css: ['~/assets/scss/main.scss'],
     vite: {
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: '@use "@/assets/scss/main.scss" as *;',
+                    additionalData: '@use "@/assets/scss/variable.scss" as *;',
+                    api: 'modern-compiler',
                 },
             },
         },
