@@ -19,7 +19,11 @@
     height: 100vh;
     overflow: hidden;
     .content {
-        height: calc(100vh - 50px);
+        width: 100vw;
+        height: calc(100vh - 60px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         overflow-y: auto;
         overflow-x: hidden;
     }

@@ -1,15 +1,17 @@
 <template>
-    <div>
-        {{ t('login.title') }}
-        <ElButton :icon="ElIconEditPen" type="success">button</ElButton>
-    </div>
+    <LayoutLeftRight>
+        <template #left>
+            <PostList v-for="item in 4" :key="item"></PostList>
+        </template>
+        <template #right>
+            <CardUserCard></CardUserCard>
+        </template>
+    </LayoutLeftRight>
 </template>
 
-<!--  -->
+<!-- 首页 -->
 <script setup lang="ts">
-const { t } = useI18n();
+import LayoutLeftRight from '~/components/content-layout/LeftRight.vue';
 </script>
 
-<style scoped lang="scss">
-// a
-</style>
+<style scoped lang="scss"></style>

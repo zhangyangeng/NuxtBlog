@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="mb-2.5 shadow-md">
         <div class="left">
             <UAvatar src="https://avatars.githubusercontent.com/u/739984?v=4" alt="Avatar" />
             <div class="title text-lg font-semibold">Wrysmile的小站</div>
@@ -110,6 +110,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
+    background-color: var(--content-background-color);
     .left {
         display: flex;
         align-items: center;

@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer class="mb-2.5">
         <a
             href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn"
             class="cc-opacity"
