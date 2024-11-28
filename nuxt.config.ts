@@ -4,6 +4,9 @@ export default defineNuxtConfig({
     devServer: {
         port: 5173,
     },
+    typescript: {
+        typeCheck: true,
+    },
     modules: [
         [
             '@nuxtjs/i18n',
