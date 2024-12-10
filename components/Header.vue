@@ -35,9 +35,13 @@
                 <UDropdown :items="mobileLink" :popper="{ placement: 'bottom', arrow: true }" :ui="{ width: 'w-24' }">
                     <UIcon name="ic:baseline-format-list-bulleted" class="w-5 h-5 mobile-link" />
                 </UDropdown>
+                <UButton
+                    :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
+                    color="gray"
+                    variant="ghost"
+                    aria-label="Theme"
+                    @click="isDark = !isDark" />
                 <UIcon name="material-symbols:search" class="w-5 h-5" />
-                <UIcon v-show="mode === 'dark'" name="ic:round-wb-sunny" class="w-5 h-5" @click="changeWebMode('light')" />
-                <UIcon v-show="mode === 'light'" name="ic:outline-dark-mode" class="w-5 h-5" @click="changeWebMode('dark')" />
                 <UIcon name="teenyicons:github-outline" class="w-5 h-5" @click="forwardGithub" />
             </div>
         </div>
@@ -46,10 +50,16 @@
 
 <!-- 页面头部 -->
 <script setup lang="ts">
-import { useColorMode, type BasicColorMode } from '@vueuse/core';
-
 // 页面显示模式
-const mode = useColorMode();
+const colorMode = useColorMode();
+const isDark = computed({
+    get() {
+        return colorMode.value === 'dark';
+    },
+    set() {
+        colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
+    },
+});
 const { t } = useI18n();
 const mobileLink = [
     [
@@ -83,14 +93,6 @@ const mobileLink = [
         },
     ],
 ];
-
-/**
- * 切换亮白/暗黑模式
- * @param {BasicColorMode} type 页面显示模式
- */
-function changeWebMode(type: BasicColorMode): void {
-    mode.value = type;
-}
 
 /**
  * 前往Github
