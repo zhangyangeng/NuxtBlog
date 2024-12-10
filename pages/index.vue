@@ -1,7 +1,8 @@
 <template>
     <LayoutLeftRight>
         <template #left>
-            <PostList v-for="item in 4" :key="item"></PostList>
+            <PostList v-if="postLength === 0" :empty="postLength === 0"></PostList>
+            <PostList v-for="item in postLength" :key="item"></PostList>
         </template>
         <template #right>
             <CardUserCard></CardUserCard>
@@ -12,6 +13,8 @@
 <!-- 首页 -->
 <script setup lang="ts">
 import LayoutLeftRight from '~/components/content-layout/LeftRight.vue';
+
+const postLength = ref(2);
 </script>
 
 <style scoped lang="scss"></style>
