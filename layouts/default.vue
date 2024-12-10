@@ -1,17 +1,19 @@
 <template>
     <div class="main-view">
         <Header></Header>
-        <div class="content">
+        <div ref="contentEle" class="content">
             <slot />
             <Footer></Footer>
-            <el-backtop :right="100" :bottom="100" />
         </div>
+        <BackTop :target="contentEle"></BackTop>
     </div>
 </template>
 
 <!-- 默认布局 -->
 <script setup lang="ts">
-// a
+import BackTop from '~/components/common/BackTop.vue';
+
+const contentEle = ref<HTMLElement>();
 </script>
 
 <style scoped lang="scss">

@@ -3,10 +3,12 @@
     --background-color: #f1f5f9; // 背景色
     --content-background-color: #fff; // 内容背景色
     --border-color: #e2e8f0; // 边框色
+    --primary-color: rgb(var(--color-primary-DEFAULT)); // 系统主题色
 }
 
 // 暗黑模式
 :root.dark {
     --background-color: #1B1B1F; // 背景色
     --border-color: #20293B; // 边框色
+    --primary-color: rgb(var(--color-primary-DEFAULT)); // 系统主题色
 }
