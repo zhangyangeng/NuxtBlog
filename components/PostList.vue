@@ -6,7 +6,7 @@
         <template v-else>
             <h1 class="text-xl font-semibold">《 这是标题 》</h1>
             <div class="text-sm my-2 summary">
-                <div class="title w-20 not-allow-selected">AI 摘要</div>
+                <div class="title w-20 not-allow-select">AI 摘要</div>
                 <div class="content">
                     这是内容哈哈哈哈哈哈阿萨德哈时间的哈刷卡机等哈刷卡机德哈卡叫啥打卡机是这是内容哈哈哈哈哈哈阿萨德哈时间的哈刷卡机等哈刷卡机德哈卡叫啥打卡机是
                 </div>

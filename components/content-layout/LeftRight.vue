@@ -1,16 +1,25 @@
 <template>
     <div class="home-container">
-        <div class="left">
+        <div class="left mr-5">
             <slot name="left"></slot>
         </div>
-        <div class="right">
+        <div class="right" :style="{ width: (rightWidth ? rightWidth : 250) + 'px' }">
             <slot name="right"></slot>
         </div>
     </div>
 </template>
 
 <!-- 左右布局结构 -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+withDefaults(
+    defineProps<{
+        rightWidth?: number;
+    }>(),
+    {
+        rightWidth: 250,
+    }
+);
+</script>
 
 <style scoped lang="scss">
 .home-container {
@@ -21,10 +30,8 @@
         min-height: 300px;
     }
     .left {
-        width: 68%;
-    }
-    .right {
-        width: 30%;
+        flex: 1;
+        min-width: 0;
     }
 }
 .grid-content {
@@ -46,9 +53,6 @@
 // 手机端样式
 @media (max-width: 768px) {
     .home-container {
-        .left {
-            width: 100%;
-        }
         .right {
             display: none;
         }
