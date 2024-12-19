@@ -1,0 +1,8 @@
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+    $colors: (
+        "primary": (
+            // 主题色和NuxtUI主题色保持一致
+            "base": #00c16a
+        )
+    )
+);

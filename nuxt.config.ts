@@ -32,12 +32,14 @@ export default defineNuxtConfig({
         '@nuxt/ui',
         '@vueuse/nuxt',
     ],
-    css: ['~/assets/scss/main.scss'],
+    // 支持 Element Plus 的暗黑模式
+    css: ['~/assets/scss/main.scss', 'element-plus/theme-chalk/dark/css-vars.css'],
     vite: {
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: '@use "@/assets/scss/variable.scss" as *;',
+                    // 覆盖Element Plus的样式变量
+                    additionalData: '@use "@/assets/scss/element.scss" as *;',
                     api: 'modern-compiler',
                 },
             },
