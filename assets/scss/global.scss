@@ -17,6 +17,10 @@ body {
         margin: 0 5px;
     }
 }
+// 覆盖Tailwind样式
+svg {
+    display: inline-block;
+}
 
 /* 修改滚动条的样式 */
 ::-webkit-scrollbar {

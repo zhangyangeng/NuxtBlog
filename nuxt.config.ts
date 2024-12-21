@@ -31,6 +31,7 @@ export default defineNuxtConfig({
         ],
         '@nuxt/ui',
         '@vueuse/nuxt',
+        'nuxt-icons',
     ],
     // 支持 Element Plus 的暗黑模式
     css: ['~/assets/scss/main.scss', 'element-plus/theme-chalk/dark/css-vars.css'],
