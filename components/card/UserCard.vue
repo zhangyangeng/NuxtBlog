@@ -9,26 +9,42 @@
             </div>
         </div>
         <!-- 座右铭 -->
-        <p class="motto text-xs text-zinc-500 p-2.5">『{{ home.motto }}』</p>
+        <p class="motto text-xs text-zinc-500 p-2.5">『{{ motto }}』</p>
         <!-- 文章数量 -->
         <div class="post-dash p-2.5">
             <div class="post-count info">
-                <div class="count">2</div>
+                <div class="count">
+                    <ULink to="/TimeLine" inactive-class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400">
+                        23
+                    </ULink>
+                </div>
                 <div class="name text-zinc-500">文章数</div>
             </div>
             <div class="category-count info">
-                <div class="count">1</div>
+                <div class="count">
+                    <ULink to="/Category" inactive-class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400">
+                        1
+                    </ULink>
+                </div>
                 <div class="name text-zinc-500">分类数</div>
             </div>
             <div class="tag-count info">
-                <div class="count">5</div>
+                <div class="count">
+                    <ULink to="/Tag" inactive-class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400">
+                        1
+                    </ULink>
+                </div>
                 <div class="name text-zinc-500">标签数</div>
             </div>
         </div>
         <!-- 联系方式 -->
-        <div v-if="home.showContact" class="link-me h-20">
+        <div v-if="showContact.enabled" class="link-me p-2.5">
             <UDivider label="你能抓到我吗" />
-            <div class="link-icon"></div>
+            <div class="link-icon h-12">
+                <template v-for="(item, index) in showContact.info" :key="index">
+                    <CommonSvgIcon v-if="item" :name="index" font-size="20px" @click="jumpToLink(item)"></CommonSvgIcon>
+                </template>
+            </div>
         </div>
     </div>
 </template>
@@ -36,6 +52,19 @@
 <!-- 用户卡片 -->
 <script setup lang="ts">
 const { home } = useAppConfig();
+const { showContact, motto } = home;
+
+/**
+ * 跳转到链接
+ * @param {string} link 链接
+ */
+function jumpToLink(link: string): void {
+    if (UrlUtils.checkUrl(link)) {
+        UrlUtils.forwardUrl(link);
+    } else {
+        ElMessage.error('链接格式不正确');
+    }
+}
 </script>
 
 <style scoped lang="scss">
@@ -82,10 +111,8 @@ const { home } = useAppConfig();
     }
     .post-dash {
         width: 100%;
-        // height: 100px;
         display: flex;
         justify-content: space-around;
-        // border-bottom: 1px solid var(--border-color);
         .info {
             flex: 1;
             text-align: center;
@@ -98,6 +125,18 @@ const { home } = useAppConfig();
             }
             .name {
                 font-size: 0.75rem;
+            }
+        }
+    }
+    .link-me {
+        .link-icon {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            span:hover {
+                transition-property: font-size;
+                transition-duration: 0.1s;
+                font-size: 30px !important;
             }
         }
     }

@@ -42,7 +42,11 @@
                     aria-label="Theme"
                     @click="isDark = !isDark" />
                 <UIcon name="material-symbols:search" class="w-5 h-5" />
-                <UIcon name="teenyicons:github-outline" class="w-5 h-5" @click="forwardGithub" />
+                <UIcon
+                    v-if="showContact?.info?.github"
+                    name="teenyicons:github-outline"
+                    class="w-5 h-5"
+                    @click="forwardGithub(showContact?.info?.github)" />
             </div>
         </div>
     </header>
@@ -51,15 +55,7 @@
 <!-- 页面头部 -->
 <script setup lang="ts">
 // 页面显示模式
-const colorMode = useColorMode();
-const isDark = computed({
-    get() {
-        return colorMode.value === 'dark';
-    },
-    set() {
-        colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
-    },
-});
+const isDark = useDark();
 const { t } = useI18n();
 const mobileLink = [
     [
@@ -93,12 +89,15 @@ const mobileLink = [
         },
     ],
 ];
+const { home } = useAppConfig();
+const { showContact } = home;
 
 /**
  * 前往Github
+ * @param {string} url 当前地址
  */
-function forwardGithub(): void {
-    UrlUtils.forwardUrl('https://github.com/zhangyangeng');
+function forwardGithub(url: string): void {
+    UrlUtils.forwardUrl(url);
 }
 </script>
 

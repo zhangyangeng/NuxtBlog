@@ -1,3 +1,28 @@
+# 项目约束
+
+- 组件和图标优先使用Nuxt-ui库中
+
+## Tailwind 约束
+
+- 圆角：rounded-xl
+- 阴影：shadow-md
+
+# 媒体查询边界
+```scss
+// 电脑端样式
+@media (max-width: 1400px) {
+
+}
+// 平板端样式
+@media (max-width: 992px) {
+
+}
+// 手机端样式
+@media (max-width: 768px) {
+
+}
+```
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
