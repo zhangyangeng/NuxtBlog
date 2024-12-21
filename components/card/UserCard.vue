@@ -18,7 +18,7 @@
                         23
                     </ULink>
                 </div>
-                <div class="name text-zinc-500">文章数</div>
+                <div class="name text-zinc-500">{{ t('user-card.post-count') }}</div>
             </div>
             <div class="category-count info">
                 <div class="count">
@@ -26,7 +26,7 @@
                         1
                     </ULink>
                 </div>
-                <div class="name text-zinc-500">分类数</div>
+                <div class="name text-zinc-500">{{ t('user-card.category-count') }}</div>
             </div>
             <div class="tag-count info">
                 <div class="count">
@@ -34,12 +34,12 @@
                         1
                     </ULink>
                 </div>
-                <div class="name text-zinc-500">标签数</div>
+                <div class="name text-zinc-500">{{ t('user-card.tag-count') }}</div>
             </div>
         </div>
         <!-- 联系方式 -->
         <div v-if="showContact.enabled" class="link-me p-2.5">
-            <UDivider label="你能抓到我吗" />
+            <UDivider :label="t('user-card.can-you-catch-me')" />
             <div class="link-icon h-12">
                 <template v-for="(item, index) in showContact.info" :key="index">
                     <CommonSvgIcon v-if="item" :name="index" font-size="20px" @click="jumpToLink(item)"></CommonSvgIcon>
@@ -53,6 +53,7 @@
 <script setup lang="ts">
 const { home } = useAppConfig();
 const { showContact, motto } = home;
+const { t } = useI18n();
 
 /**
  * 跳转到链接
@@ -62,7 +63,7 @@ function jumpToLink(link: string): void {
     if (UrlUtils.checkUrl(link)) {
         UrlUtils.forwardUrl(link);
     } else {
-        ElMessage.error('链接格式不正确');
+        ElMessage.error(t('public.message.url-invalid-please-check'));
     }
 }
 </script>

@@ -2,7 +2,7 @@
     <nuxt-icon
         :name="name"
         :style="{
-            color: isDark ? darkColor : lightColor,
+            color: inheritLisghtColor ? lightColor : isDark ? darkColor : lightColor,
             fontSize: fontSize,
         }" />
 </template>
@@ -19,11 +19,14 @@ withDefaults(
         darkColor?: string;
         // 字体大小
         fontSize?: string;
+        // 暗色模式下是否沿用白天模式颜色
+        inheritLisghtColor?: boolean;
     }>(),
     {
         lightColor: '#666',
         darkColor: '#fff',
         fontSize: '18px',
+        inheritLisghtColor: false,
     }
 );
 

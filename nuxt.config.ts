@@ -14,12 +14,7 @@ export default defineNuxtConfig({
                 vueI18n: './plugins/i18n.config.ts',
             },
         ],
-        [
-            '@element-plus/nuxt',
-            {
-                importStyle: 'scss',
-            },
-        ],
+        '@element-plus/nuxt',
         [
             '@pinia/nuxt',
             {
@@ -33,14 +28,18 @@ export default defineNuxtConfig({
         '@vueuse/nuxt',
         'nuxt-icons',
     ],
-    // 支持 Element Plus 的暗黑模式
-    css: ['~/assets/scss/main.scss', 'element-plus/theme-chalk/dark/css-vars.css'],
+    elementPlus: {
+        importStyle: 'scss',
+        // 支持 Element Plus 的暗黑模式
+        themes: ['dark'],
+    },
+    css: ['~/assets/scss/main.scss'],
     vite: {
         css: {
             preprocessorOptions: {
                 scss: {
                     // 覆盖Element Plus的样式变量
-                    additionalData: '@use "@/assets/scss/element.scss" as *;',
+                    additionalData: '@use "@/assets/scss/element.scss";',
                     api: 'modern-compiler',
                 },
             },

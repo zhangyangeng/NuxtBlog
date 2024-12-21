@@ -9,5 +9,16 @@
             "time-line": "时间线",
             "about": "关于"
         }
+    },
+    "user-card": {
+        "can-you-catch-me": "你能抓到我吗",
+        "post-count": "文章数",
+        "category-count": "分类数",
+        "tag-count": "标签数"
+    },
+    "public": {
+        "message": {
+            "url-invalid-please-check": "链接不正确，请检查系统配置文件"
+        }
     }
 }

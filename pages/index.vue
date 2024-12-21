@@ -3,6 +3,7 @@
         <template #left>
             <PostList v-if="postLength === 0" :empty="postLength === 0"></PostList>
             <PostList v-for="item in postLength" :key="item"></PostList>
+            <el-pagination background layout="prev, pager, next" size="small" :total="100" />
         </template>
         <template #right>
             <CardUserCard></CardUserCard>
