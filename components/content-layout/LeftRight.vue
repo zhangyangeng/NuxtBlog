@@ -1,9 +1,9 @@
 <template>
     <div class="home-container">
-        <div class="left mr-5">
+        <div class="left">
             <slot name="left"></slot>
         </div>
-        <div class="right" :style="{ width: (rightWidth ? rightWidth : 250) + 'px' }">
+        <div class="right ml-5" :style="{ width: (rightWidth ? rightWidth : 250) + 'px' }">
             <slot name="right"></slot>
         </div>
     </div>
