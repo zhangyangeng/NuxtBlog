@@ -5,7 +5,7 @@
         <!-- 用户头像 -->
         <div class="user-avatar">
             <div class="avatar shadow-md">
-                <el-avatar shape="circle" :size="80" fit="cover" src="avatar.jpg" />
+                <el-avatar shape="circle" :size="80" fit="cover" src="/avatar.jpg" />
             </div>
         </div>
         <!-- 座右铭 -->

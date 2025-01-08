@@ -1,5 +1,5 @@
 <template>
-    <div class="not-allow-select">
+    <div class="post-header not-allow-select">
         <h1 class="text-xl font-semibold">这是标题</h1>
         <!-- 文章标志 -->
         <div class="symbol">
@@ -18,19 +18,22 @@
 </script>
 
 <style scoped lang="scss">
-.symbol {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.75rem;
-    .nuxt-icon {
-        margin-right: 0.25rem;
-    }
-    .symbol-item {
+.post-header {
+    text-align: center;
+    .symbol {
         display: flex;
+        justify-content: center;
         align-items: center;
-        .el-link {
-            font-size: 0.75rem;
+        font-size: 0.75rem;
+        .nuxt-icon {
+            margin-right: 0.25rem;
+        }
+        .symbol-item {
+            display: flex;
+            align-items: center;
+            .el-link {
+                font-size: 0.75rem;
+            }
         }
     }
 }

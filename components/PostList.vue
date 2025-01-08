@@ -14,7 +14,7 @@
             </div>
             <!-- 阅读原文 -->
             <div class="original">
-                <UButton label="阅读原文" color="gray" size="xs">
+                <UButton label="阅读原文" color="gray" size="xs" @click="jumpToPostDetail(1)">
                     <template #trailing>
                         <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5" />
                     </template>
@@ -30,6 +30,14 @@
 defineProps<{
     empty?: boolean;
 }>();
+
+/**
+ * 跳转到文章详情页
+ * @param {number} id 文章ID
+ */
+async function jumpToPostDetail(id: number): Promise<void> {
+    await navigateTo(`/posts/${id}`);
+}
 </script>
 
 <style scoped lang="scss">
