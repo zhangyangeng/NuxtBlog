@@ -54,6 +54,7 @@
 
 <!-- 页面头部 -->
 <script setup lang="ts">
+import '~/apis/index';
 // 页面显示模式
 const isDark = useDark();
 const { t } = useI18n();
@@ -62,29 +63,29 @@ const mobileLink = [
         {
             label: t('header.link.home'),
             // icon: 'i-heroicons-pencil-square-20-solid',
-            click: (): void => {
-                console.log('Edit');
+            click: async (): Promise<void> => {
+                await navigateTo('/');
             },
         },
         {
             label: t('header.link.category'),
             // icon: 'i-heroicons-pencil-square-20-solid',
-            click: (): void => {
-                console.log('Edit');
+            click: async (): Promise<void> => {
+                await navigateTo('/Category');
             },
         },
         {
             label: t('header.link.time-line'),
             // icon: 'i-heroicons-pencil-square-20-solid',
-            click: (): void => {
-                console.log('Edit');
+            click: async (): Promise<void> => {
+                await navigateTo('/TimeLine');
             },
         },
         {
             label: t('header.link.about'),
             // icon: 'i-heroicons-pencil-square-20-solid',
-            click: (): void => {
-                console.log('Edit');
+            click: async (): Promise<void> => {
+                await navigateTo('/About');
             },
         },
     ],

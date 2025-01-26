@@ -39,6 +39,11 @@ withDefaults(
     min-height: 36px;
 }
 // 电脑端样式
+@media (min-width: 1400px) {
+    .home-container {
+        width: 80%;
+    }
+}
 @media (max-width: 1400px) {
     .home-container {
         width: 90%;
