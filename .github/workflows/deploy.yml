@@ -19,6 +19,9 @@ jobs:
     steps:
       - name: Stop on error
         run: set -e
+
+      - name: Checkout
+        uses: actions/checkout@v2
         
       - name: Install Node.js
         uses: actions/setup-node@v2
