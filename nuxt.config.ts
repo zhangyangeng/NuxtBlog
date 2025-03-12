@@ -44,6 +44,9 @@ export default defineNuxtConfig({
                 },
             },
         },
+        optimizeDeps: {
+            include: ['dayjs', 'dayjs/plugin/*', 'element-plus']
+        }
     },
     compatibilityDate: '2024-11-15',
     runtimeConfig: {
