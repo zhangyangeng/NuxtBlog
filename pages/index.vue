@@ -13,9 +13,15 @@
 
 <!-- 首页 -->
 <script setup lang="ts">
+import { fetchIssuesListApi } from '~/apis/issues-api';
 import LayoutLeftRight from '~/components/content-layout/LeftRight.vue';
 
 const postLength = ref(2);
+
+onBeforeMount(async () => {
+    const info = await fetchIssuesListApi();
+    console.log(info);
+});
 </script>
 
 <style scoped lang="scss"></style>

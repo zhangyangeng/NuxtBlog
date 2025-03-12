@@ -75,7 +75,7 @@ function jumpToLink(link: string): void {
     .background {
         position: relative;
         height: 140px;
-        background: url('user-bg.jpg');
+        background: url('/user-bg.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         border-radius: 0.75rem 0.75rem 0 0;

@@ -54,7 +54,6 @@
 
 <!-- 页面头部 -->
 <script setup lang="ts">
-import '~/apis/index';
 // 页面显示模式
 const isDark = useDark();
 const { t } = useI18n();

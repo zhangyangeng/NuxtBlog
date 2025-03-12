@@ -46,4 +46,13 @@ export default defineNuxtConfig({
         },
     },
     compatibilityDate: '2024-11-15',
+    runtimeConfig: {
+        public: {
+            githubToken: process.env.NUXT_GITHUB_TOKEN,
+        },
+    },
+    experimental: {
+        // 开启异步数据加载
+        asyncContext: true,
+    },
 });

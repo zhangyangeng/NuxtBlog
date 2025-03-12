@@ -1,13 +1,9 @@
 import { Octokit } from 'octokit';
 
+const config = useRuntimeConfig();
+
 const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
+    auth: config.public.githubToken,
 });
 
-console.log(process.env.GITHUB_TOKEN);
-
-const res = await octokit.request('GET /repos/{owner}/{repo}/issues', {
-    owner: 'zhangyangeng',
-    repo: 'NuxtBlog',
-});
-console.log(res);
+export default octokit;

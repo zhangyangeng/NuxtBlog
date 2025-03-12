@@ -6,6 +6,7 @@
 
 - 圆角：rounded-xl
 - 阴影：shadow-md
+- 内边距：p-4
 
 # 媒体查询边界
 ```scss
