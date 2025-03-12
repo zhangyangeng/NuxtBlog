@@ -1,0 +1,45 @@
+name: Generate then deploy pages
+
+# 当Push请求到主分支时执行该工作流
+on: 
+  push:
+    branches:
+      - master
+
+# 定义环境变量用于以下步骤使用
+env:
+  API_TOKEN: ${{ secrets.API_TOKEN }}
+  PAGE_TOKEN: ${{ secrets.PAGE_TOKEN }}
+
+# 工作流
+jobs:
+  build-and-deploy:
+    name: Build code and deploy pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stop on error
+        run: set -e
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with: 
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check code lint
+        run: npm run lint
+
+      - name: Generate statics
+        run: npm run generate
+
+      - name: Deploy to github pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: PAGE_TOKEN
+          publish_dir: .output/public
+    
