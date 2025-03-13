@@ -8,12 +8,7 @@ export default defineNuxtConfig({
         typeCheck: true,
     },
     modules: [
-        [
-            '@nuxtjs/i18n',
-            {
-                vueI18n: './plugins/i18n.config.ts',
-            },
-        ],
+        '@nuxtjs/i18n',
         '@element-plus/nuxt',
         [
             '@pinia/nuxt',
@@ -28,6 +23,9 @@ export default defineNuxtConfig({
         '@vueuse/nuxt',
         'nuxt-icons',
     ],
+    i18n: {
+        vueI18n: './i18n.config.ts',
+    },
     elementPlus: {
         importStyle: 'scss',
         // 支持 Element Plus 的暗黑模式
