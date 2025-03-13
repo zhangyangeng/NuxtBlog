@@ -1,0 +1,1 @@
+import{e,c as o,o as t}from"./BLxXztcc.js";import{_ as a}from"./DlAUqK2U.js";const _=e({__name:"Tag",setup(c){return(r,s)=>(t(),o("div"))}}),m=a(_,[["__scopeId","data-v-31b62def"]]);export{m as default};

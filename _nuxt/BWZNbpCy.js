@@ -1,0 +1,1 @@
+import{e,c as o,o as t}from"./BLxXztcc.js";import{_ as c}from"./DlAUqK2U.js";const _=e({__name:"About",setup(a){return(n,r)=>(t(),o("div",null,"关于"))}}),m=c(_,[["__scopeId","data-v-b1132cb5"]]);export{m as default};

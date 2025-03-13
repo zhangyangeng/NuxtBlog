@@ -1,0 +1,1 @@
+import{e,c as o,o as t}from"./BLxXztcc.js";import{_ as n}from"./DlAUqK2U.js";const a=e({__name:"TimeLine",setup(_){return(c,r)=>(t(),o("div",null,"这是时间线"))}}),p=n(a,[["__scopeId","data-v-a087b576"]]);export{p as default};

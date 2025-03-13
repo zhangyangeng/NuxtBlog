@@ -1,0 +1,1 @@
+import{e,c as o,o as t}from"./BLxXztcc.js";import{_ as a}from"./DlAUqK2U.js";const r=e({__name:"Category",setup(c){return(_,n)=>(t(),o("div",null,"分类页"))}}),m=a(r,[["__scopeId","data-v-c3beb900"]]);export{m as default};
