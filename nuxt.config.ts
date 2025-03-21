@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     app: {
-        baseURL: '/NuxtBlog/'
+        baseURL: '/NuxtBlog/',
     },
     devtools: { enabled: true },
     devServer: {
@@ -46,14 +46,12 @@ export default defineNuxtConfig({
             },
         },
         optimizeDeps: {
-            include: ['dayjs', 'dayjs/plugin/*', 'element-plus']
-        }
+            include: ['dayjs', 'dayjs/plugin/*', 'element-plus'],
+        },
     },
     compatibilityDate: '2024-11-15',
     runtimeConfig: {
-        public: {
-            githubToken: process.env.NUXT_GITHUB_TOKEN,
-        },
+        githubToken: process.env.NUXT_GITHUB_TOKEN,
     },
     experimental: {
         // 开启异步数据加载

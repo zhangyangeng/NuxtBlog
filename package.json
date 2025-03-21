@@ -34,6 +34,7 @@
     "vue-tsc": "^2.0.29"
   },
   "dependencies": {
+    "@octokit/graphql": "^8.2.1",
     "@pinia/nuxt": "^0.4.11",
     "nuxt-icons": "^3.2.1",
     "octokit": "^4.1.0",

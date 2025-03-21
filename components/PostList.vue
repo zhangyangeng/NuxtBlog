@@ -4,38 +4,57 @@
             <el-empty description="该作者很懒，暂未发布任何文章" />
         </template>
         <template v-else>
-            <CommonPostHeader></CommonPostHeader>
+            <CommonPostHeader
+                :title="postData.title"
+                :publish-time="postData.createdAt"
+                :category="postData.milestone?.title || ''"></CommonPostHeader>
             <!-- 文章摘要（由AI生成） -->
             <div class="text-sm my-2 summary">
                 <div class="title w-20 not-allow-select">AI 摘要</div>
                 <div class="content">
-                    这是内容哈哈哈哈哈哈阿萨德哈时间的哈刷卡机等哈刷卡机德哈卡叫啥打卡机是这是内容哈哈哈哈哈哈阿萨德哈时间的哈刷卡机等哈刷卡机德哈卡叫啥打卡机是
+                    {{ aiCommonet }}
                 </div>
             </div>
             <!-- 阅读原文 -->
             <div class="original">
-                <UButton label="阅读原文" color="gray" size="xs" @click="jumpToPostDetail(1)">
+                <UButton label="阅读原文" color="gray" size="xs" @click="jumpToPostDetail(postData.number)">
                     <template #trailing>
                         <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5" />
                     </template>
                 </UButton>
             </div>
         </template>
-        <CommonSvgIcon class="top" name="top" light-color="#F35571" :inherit-lisght-color="true" font-size="40px"></CommonSvgIcon>
+        <CommonSvgIcon
+            v-if="isTop"
+            class="top"
+            name="top"
+            light-color="#F35571"
+            :inherit-lisght-color="true"
+            font-size="40px"></CommonSvgIcon>
     </div>
 </template>
 
 <!-- 文章列表 -->
 <script setup lang="ts">
-defineProps<{
+import { GITHUB_OWNER } from '~/server/enums/Constants';
+import type { PostData } from '~/types/Post';
+
+const props = defineProps<{
     empty?: boolean;
+    postData: PostData;
 }>();
+
+const isTop = computed(() => props.postData.labels?.edges.some((item) => item.node.name === ':+1:置顶'));
+const aiCommonet = computed(
+    () => props.postData.comments?.edges.find((item) => item.node.author.login === GITHUB_OWNER)?.node.body || '正在生成中，请稍后...'
+);
 
 /**
  * 跳转到文章详情页
  * @param {number} id 文章ID
  */
 async function jumpToPostDetail(id: number): Promise<void> {
+    localStorage.setItem(`post_${id}`, JSON.stringify(props.postData));
     await navigateTo(`/posts/${id}`);
 }
 </script>
