@@ -14,3 +14,12 @@ export interface HomePostResponseData {
         edges: Node<PostData>[];
     };
 }
+
+/**
+ * 单个文章响应数据
+ */
+export interface SinglePostResponseData {
+    repository: {
+        issue: PostData;
+    };
+}

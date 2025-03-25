@@ -1,0 +1,794 @@
+@use "./fonts/fonts.css" as *;
+
+// 变量定义
+$side-bar-bg-color: #1d1d1d;
+$bg-color: #1f1f1f;
+$control-text-color: #aaaaaa;
+$text-color: #aaaaaa;
+$font-color: #eeeeee;
+$primary-color: #42b983;
+$select-text-bg-color: hsl(153, 47%, 40%);
+$code-bg-color: hsl(0, 0%, 10%);
+$code-color: #f3b37f;
+$link-color: #22a2c9;
+$border-dark: hsl(0, 0%, 20%);
+$border-darker: hsl(0, 0%, 18%);
+$border-darkest: hsl(210, 10%, 11%);
+$font-sans-serif: "Source Sans Pro", sans-serif !important;
+$font-monospace: "Fira Code", "Roboto Mono", monospace !important;
+$heading-line-height: 1.4;
+
+.dark .md-theme-vue {
+    // CSS变量 - 为了兼容性保留
+    --side-bar-bg-color: #{$side-bar-bg-color};
+    --control-text-color: #{$control-text-color};
+    --select-text-bg-color: #{$select-text-bg-color};
+    --active-file-bg-color: #{$select-text-bg-color};
+    --select-text-font-color: #{$control-text-color};
+    --active-file-text-color: #{$font-color};
+    --bg-color: #{$side-bar-bg-color};
+    --item-hover-bg-color: var(--select-text-bg-color);
+    --text-color: #{$text-color};
+    --font-sans-serif: #{$font-sans-serif};
+    --font-monospace: #{$font-monospace};
+
+    // 基本样式
+    font-size: 16px;
+    font-family: var(--font-sans-serif);
+    color: $font-color;
+    background-color: var(--content-background-color);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6rem;
+    letter-spacing: 0;
+    margin: 0;
+    overflow-x: hidden;
+
+    // 原始块样式
+    .md-rawblock-control:not(.md-rawblock-tooltip) {
+        background: #555;
+        color: $font-color;
+    }
+
+    .md-rawblock-on-edit > .md-rawblock-tooltip,
+    .md-rawblock:hover > .md-rawblock-container,
+    .md-rawblock:hover > .md-rawblock-tooltip {
+        background: #555;
+        color: $font-color;
+    }
+
+    // CodeMirror 样式
+    .cm-s-inner {
+        .cm-keyword {
+            color: #bb7fc3;
+        }
+
+        .cm-atom,
+        &.cm-atom {
+            color: #9088cc;
+        }
+
+        .cm-number {
+            color: #88b2a1;
+        }
+
+        .cm-def {
+            color: #7f7fff;
+        }
+
+        .cm-variable {
+            color: #efefef;
+        }
+
+        .cm-variable-2 {
+            color: #7faad4;
+        }
+
+        .cm-variable-3 {
+            color: #7fc3aa;
+        }
+
+        .cm-string {
+            color: #d48888;
+        }
+
+        .cm-property {
+            color: #efefef;
+        }
+
+        .cm-operator {
+            color: #cb8c8c;
+        }
+
+        .cm-comment,
+        &.cm-comment {
+            color: hsl(0, 0%, 35%);
+        }
+
+        .cm-string-2 {
+            color: #ffaa7f;
+        }
+
+        .cm-meta {
+            color: hsl(0, 0%, 33%);
+        }
+
+        .cm-qualifier {
+            color: hsl(0, 0%, 33%);
+        }
+
+        .cm-builtin {
+            color: #997fd4;
+        }
+
+        .cm-bracket {
+            color: #ccccbb;
+        }
+
+        .cm-tag {
+            color: #88bb7f;
+        }
+
+        .cm-attribute {
+            color: #7f7fe5;
+        }
+
+        .cm-header,
+        &.cm-header {
+            color: #7f7fff;
+        }
+
+        .cm-quote,
+        &.cm-quote {
+            color: #7fcc7f;
+        }
+
+        .cm-hr,
+        &.cm-hr {
+            color: hsl(0, 0%, 60%);
+        }
+
+        .cm-link,
+        &.cm-link {
+            color: #7f7fe5;
+        }
+    }
+
+    // CodeMirror其他样式
+    .cm-negative {
+        color: #eea1a1;
+    }
+
+    .cm-positive {
+        color: #90cc90;
+    }
+
+    .cm-header,
+    .cm-strong {
+        font-weight: 700;
+    }
+
+    .cm-error {
+        color: #ff7f7f;
+    }
+
+    .cm-invalidchar {
+        color: #ff7f7f;
+    }
+
+    .cm-constant {
+        color: $primary-color;
+    }
+
+    .cm-defined {
+        color: #dac37f;
+    }
+
+    div.CodeMirror {
+        span.CodeMirror-matchingbracket {
+            color: #7fff7f;
+        }
+
+        span.CodeMirror-nonmatchingbracket {
+            color: #ff9090;
+        }
+    }
+
+    // 交互元素样式
+    .info-panel-tab:hover {
+        color: $primary-color;
+    }
+
+    .outline-label:hover {
+        text-decoration: none;
+    }
+
+    input {
+        color: $primary-color;
+    }
+
+    .dropdown-menu > li > a {
+        color: $font-color;
+
+        &:focus,
+        &:hover {
+            background: var(--select-text-bg-color);
+            color: #fff;
+        }
+    }
+
+    // 链接样式
+    a {
+        color: $primary-color;
+        font-weight: 600;
+        padding: 0 2px;
+        text-decoration: none;
+
+        &:first-child {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                margin-top: 0;
+                padding-top: 0;
+            }
+        }
+    }
+
+    // 写作区域样式
+    #write {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 20px 30px 40px 30px;
+        padding-top: 20px;
+        padding-bottom: 100px;
+
+        p {
+            line-height: 1.6rem;
+            word-spacing: 0.05rem;
+        }
+
+        ol li {
+            padding-left: 0.5rem;
+        }
+
+        > ul:first-child,
+        > ol:first-child {
+            margin-top: 30px;
+        }
+
+        strong {
+            padding: 0 1px;
+        }
+
+        em {
+            padding: 0 5px 0 2px;
+        }
+
+        table thead th {
+            background-color: hsl(0, 0%, 9%);
+        }
+
+        .CodeMirror-gutters {
+            border-right: none;
+        }
+
+        .md-fences {
+            border: 1px solid hsl(0, 0%, 11%);
+            -webkit-font-smoothing: initial;
+            margin: 0.8rem 0 !important;
+            padding: 0.3rem 0 !important;
+            line-height: 1.43rem;
+            color: hsl(0, 0%, 78%);
+            background-color: $code-bg-color !important;
+            border-radius: 2px;
+            font-family: var(--font-monospace);
+            font-weight: bold;
+            font-size: 0.85rem;
+            word-wrap: normal;
+        }
+
+        .CodeMirror-wrap .CodeMirror-code pre {
+            padding-left: 12px;
+        }
+
+        code,
+        tt {
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-family: var(--font-monospace);
+            font-weight: bold;
+            font-size: 0.85rem;
+            color: $code-color;
+            background-color: hsla(0, 0%, 0%, 0.2);
+        }
+
+        .md-footnote {
+            background-color: hsla(0, 0%, 0%, 0.2);
+            color: $code-color;
+        }
+
+        // 高亮样式
+        mark {
+            background-color: #ebffeb;
+            border-radius: 2px;
+            padding: 2px 4px;
+            margin: 0 2px;
+            color: #222;
+            font-weight: 500;
+        }
+
+        del {
+            padding: 1px 2px;
+        }
+
+        // 元数据块
+        pre.md-meta-block {
+            padding: 1rem;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: hsl(0, 0%, 3%);
+            border: 0;
+            border-radius: 3px;
+            color: hsl(0, 0%, 53%);
+            margin-top: 0 !important;
+        }
+
+        // 焦点样式
+        > h3.md-focus:before {
+            left: -1.5625rem;
+            top: 0.375rem;
+        }
+
+        > h4.md-focus:before {
+            left: -1.5625rem;
+            top: 0.285714286rem;
+        }
+
+        > h5.md-focus:before {
+            left: -1.5625rem;
+            top: 0.285714286rem;
+        }
+
+        > h6.md-focus:before {
+            left: -1.5625rem;
+            top: 0.285714286rem;
+        }
+    }
+
+    // 段落和容器元素基本样式
+    p,
+    blockquote,
+    ul,
+    ol,
+    dl,
+    table {
+        margin: 0.8em 0;
+    }
+
+    // 选择器优先级处理
+    > *:first-child {
+        margin-top: 0 !important;
+    }
+
+    > *:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    // 标题样式
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        position: relative;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        line-height: $heading-line-height;
+        cursor: text;
+
+        &:hover a.anchor {
+            text-decoration: none;
+        }
+
+        p {
+            margin-top: 0;
+        }
+
+        tt,
+        code {
+            font-size: inherit;
+        }
+    }
+
+    h1 {
+        padding-bottom: 0.4rem;
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        line-height: 1.225;
+        margin: 35px 0 15px 0;
+        padding-bottom: 0.5em;
+        border-bottom: 2px solid $border-dark;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        line-height: 1.43;
+        margin: 20px 0 7px 0;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+        color: hsl(0, 0%, 53%);
+    }
+
+    // 首个标题的特殊处理
+    > h1:first-child {
+        margin-top: 0;
+        padding-top: 0;
+
+        + h2 {
+            margin-top: 0;
+            padding-top: 0;
+        }
+    }
+
+    > h2:first-child {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    > h3:first-child,
+    > h4:first-child,
+    > h5:first-child,
+    > h6:first-child {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    // 列表样式
+    ul,
+    ol {
+        padding-left: 30px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    li {
+        > ol,
+        > ul {
+            margin: 0 0;
+        }
+
+        p.first {
+            display: inline-block;
+        }
+    }
+
+    // 分隔线
+    hr {
+        height: 2px;
+        padding: 0;
+        margin: 16px 0;
+        background-color: $border-darker;
+        border: 0 none;
+        overflow: hidden;
+        box-sizing: content-box;
+    }
+
+    // 引用块
+    blockquote {
+        border-left: 4px solid $primary-color;
+        padding: 10px 0 10px 15px;
+        color: $font-color;
+        background-color: rgba(66, 185, 131, 0.1);
+    }
+
+    // 表格样式
+    table {
+        font-family: var(--font-monospace);
+        font-size: 0.85rem;
+        padding: 0;
+        overflow: hidden;
+        word-break: initial;
+
+        tr {
+            border-top: 1px solid $border-darkest;
+            margin: 0;
+            padding: 0;
+
+            &:nth-child(2n) {
+                background-color: hsl(0, 0%, 10%);
+            }
+
+            th {
+                font-weight: bold;
+                border: transparent;
+                border-bottom: 0;
+                text-align: left;
+                margin: 0;
+                padding: 6px 13px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            td {
+                border: 2px solid $side-bar-bg-color;
+                text-align: left;
+                margin: 0;
+                padding: 6px 13px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    thead {
+        background-color: hsl(0, 0%, 10%);
+    }
+
+    // 其他样式
+    tt {
+        margin: 0 2px;
+    }
+
+    .md-task-list-item > input {
+        margin-left: -1.3em;
+    }
+
+    .mathjax-block > .code-tooltip {
+        bottom: 0.375rem;
+    }
+
+    .md-image > .md-meta {
+        border-radius: 3px;
+        font-family: var(--font-monospace);
+        padding: 2px 0 0 4px;
+        font-size: 0.9em;
+        color: inherit;
+    }
+
+    .md-tag {
+        color: inherit;
+    }
+
+    .md-toc {
+        margin-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .md-diagram-panel {
+        position: static !important;
+    }
+
+    .sidebar-tabs {
+        border-bottom: none;
+    }
+
+    #typora-quick-open {
+        border: 1px solid #ddd;
+        background-color: #f8f8f8;
+    }
+
+    #typora-quick-open-item {
+        background-color: hsl(0, 0%, 2%);
+        border-color: hsl(0, 0%, 0%) hsl(0, 0%, 10%) hsl(0, 0%, 10%) hsl(0, 0%, 7%);
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    #md-notification:before {
+        top: 10px;
+    }
+
+    // 聚焦模式
+    .on-focus-mode blockquote {
+        border-left-color: rgba(85, 85, 85, 0.12);
+    }
+
+    header,
+    .context-menu,
+    .megamenu-content,
+    footer {
+        font-family: var(--font-sans-serif);
+    }
+
+    .file-node-content:hover {
+        color: $font-color;
+
+        .file-node-icon,
+        .file-node-open-state {
+            visibility: visible;
+        }
+    }
+
+    .mac-seamless-mode #typora-sidebar {
+        background-color: hsl(0, 0%, 2%);
+        background-color: var(--side-bar-bg-color);
+    }
+
+    .md-lang {
+        color: $primary-color;
+    }
+
+    .html-for-mac .context-menu {
+        --item-hover-bg-color: hsl(215, 92%, 5%);
+    }
+
+    // 侧边栏相关样式
+    #typora-sidebar {
+        font-family: var(--font-sans-serif);
+        font-weight: bold;
+    }
+
+    .file-list-item-summary {
+        font-family: var(--font-sans-serif);
+        font-weight: 400;
+    }
+
+    .file-list-item {
+        border-bottom: 0.15rem solid hsl(0, 0%, 18%);
+
+        &.active {
+            background: hsl(0, 0%, 15%) !important;
+        }
+    }
+
+    .file-node-background {
+        height: 29px;
+    }
+
+    .file-tree-node.active > .file-node-background {
+        background-color: hsl(0, 0%, 15%) !important;
+    }
+
+    #toc-dropmenu {
+        background: hsl(0, 0%, 18%) !important;
+        font-weight: bold;
+    }
+
+    #toc-content {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        a:hover {
+            text-decoration: none;
+        }
+    }
+
+    .outline-item {
+        transition: color 150ms;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: $primary-color;
+        }
+    }
+
+    .sidebar-footer {
+        border-top: 2px solid hsl(0, 0%, 15%) !important;
+    }
+
+    .footer-item:hover,
+    .sidebar-footer-item:hover {
+        background-color: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .outline-title-wrapper {
+        display: none;
+    }
+
+    .dropdown-menu .divider {
+        display: none;
+        height: 2px;
+        background-color: hsl(0, 0%, 13%);
+    }
+
+    // 自动补全样式
+    .autoComplt-hint {
+        color: $primary-color !important;
+    }
+
+    .auto-suggest-container {
+        color: $primary-color !important;
+        font-family: var(--font-sans-serif);
+        font-weight: bold !important;
+        border-color: $primary-color !important;
+        border-radius: 8px !important;
+        border-width: 2px !important;
+        margin-top: 5px;
+        overflow: hidden !important;
+        box-shadow: 0 0 1rem hsla(153, 47%, 49%, 0.3);
+
+        li:hover {
+            color: $font-color !important;
+            background-color: $primary-color !important;
+        }
+    }
+
+    // 源代码视图按钮
+    .typora-sourceview-on #toggle-sourceview-btn {
+        background-color: $primary-color;
+    }
+
+    // 光标样式
+    .CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+        border-left: 5px solid $primary-color;
+    }
+
+    .CodeMirror div.CodeMirror-cursor {
+        border-left: 5px solid $primary-color;
+        z-index: 3;
+    }
+
+    // 偏好设置
+    .ty-preferences {
+        color: $control-text-color;
+
+        .btn-default:not([disabled]):hover {
+            background-color: var(--active-file-bg-color);
+            background-image: none;
+            color: #fff;
+        }
+
+        .search-hit {
+            background: var(--select-text-bg-color);
+        }
+    }
+}
+
+// 媒体查询
+@media screen and (min-width: 914px) {
+    /*body {
+      width: 854px;
+      margin: 0 auto;
+  }*/
+}
+
+@media print {
+    .dark .md-theme-vue {
+        font-size: 13px;
+
+        table,
+        pre {
+            page-break-inside: avoid;
+        }
+
+        pre {
+            word-wrap: break-word;
+        }
+    }
+}

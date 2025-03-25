@@ -11,9 +11,7 @@
             <!-- 文章摘要（由AI生成） -->
             <div class="text-sm my-2 summary">
                 <div class="title w-20 not-allow-select">AI 摘要</div>
-                <div class="content">
-                    {{ aiCommonet }}
-                </div>
+                <div class="content md-theme-vue" v-html="renderAiComment"></div>
             </div>
             <!-- 阅读原文 -->
             <div class="original">
@@ -36,7 +34,7 @@
 
 <!-- 文章列表 -->
 <script setup lang="ts">
-import { GITHUB_OWNER } from '~/server/enums/Constants';
+import { GITHUB_OWNER, TOP_LABEL } from '~/server/enums/Constants';
 import type { PostData } from '~/types/Post';
 
 const props = defineProps<{
@@ -44,10 +42,16 @@ const props = defineProps<{
     postData: PostData;
 }>();
 
-const isTop = computed(() => props.postData.labels?.edges.some((item) => item.node.name === ':+1:置顶'));
+const { $md } = useNuxtApp();
+
+const isTop = computed(() => props.postData.labels?.edges.some((item) => item.node.name === TOP_LABEL));
 const aiCommonet = computed(
-    () => props.postData.comments?.edges.find((item) => item.node.author.login === GITHUB_OWNER)?.node.body || '正在生成中，请稍后...'
+    () => props.postData.comments?.edges.find((item) => item.node.author.login === GITHUB_OWNER)?.node.body || ' `正在生成中，请稍后...`'
 );
+
+const renderAiComment = computed(() => {
+    return $md.render(aiCommonet.value);
+});
 
 /**
  * 跳转到文章详情页
